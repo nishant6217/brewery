@@ -22,7 +22,7 @@ function Header(props) {
         <HeaderButtons />
       </Toolbar>
     </AppBar>
-    
+
   );
 }
 

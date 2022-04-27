@@ -2,7 +2,7 @@ import axios from "axios";
 import * as action from "../constants/breweryConstant";
 
 const URL = "https://api.openbrewerydb.org/breweries";
-export const getBrewery = (params,perPage) => async (dispatch) => {
+export const getBrewery = (params, perPage) => async (dispatch) => {
   try {
     const { data } = await axios.get(`${URL}/search?query=${params}&per_page=${perPage}`);
     dispatch({ type: action.GET_BREWERY_SUCCESS, payload: data });

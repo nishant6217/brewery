@@ -1,10 +1,7 @@
-import { Box, TextField } from "@material-ui/core";
 import React from "react";
 import Banner from "./Banner";
 import Slide from "./Slide";
-// import { restro } from "../../constants/data";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
 import { getBrewery as listBrewery } from "../../redux/actions/breweryAction";
 
 function Home(props) {
@@ -12,31 +9,31 @@ function Home(props) {
   const [customCall, setCustomCall] = React.useState(false);
   const [stop, setStop] = React.useState(false);
   const [perPage, setPerPage] = React.useState(5);
-  const [ loadMore, setLoadMore] = React.useState(false);
+  const [loadMore, setLoadMore] = React.useState(false);
   const [stopLoadMore, setStopLoadMore] = React.useState(false);
-  const  brewery  = useSelector((state) => state.getBrewery.brewery);
+  const brewery = useSelector((state) => state.getBrewery.brewery);
   const dispatch = useDispatch();
-  const setSearchParam =(value) =>{
+  const setSearchParam = (value) => {
     setDefaultSearchParams(value);
     setCustomCall(true);
   }
-  const handleMoreDataReq =() =>{
-    setPerPage(perPage+5)
+  const handleMoreDataReq = () => {
+    setPerPage(perPage + 5)
     setLoadMore(true)
     setStopLoadMore(false)
   }
-  if(loadMore && !stopLoadMore){
-    dispatch(listBrewery(defaultSearchParams,perPage));
+  if (loadMore && !stopLoadMore) {
+    dispatch(listBrewery(defaultSearchParams, perPage));
     setStopLoadMore(true)
   }
-  if(customCall && defaultSearchParams.length!==0 && !stop){
-    dispatch(listBrewery(defaultSearchParams,perPage));
+  if (customCall && defaultSearchParams.length !== 0 && !stop) {
+    dispatch(listBrewery(defaultSearchParams, perPage));
     setStop(true)
   }
   return (
     <div>
       <Banner />
-      <Slide brewery={brewery} setSearchParam={setSearchParam} handleMoreDataReq={handleMoreDataReq}/>
+      <Slide brewery={brewery} setSearchParam={setSearchParam} handleMoreDataReq={handleMoreDataReq} />
     </div>
   );
 }

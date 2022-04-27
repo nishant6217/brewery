@@ -57,7 +57,7 @@ const useStyles = makeStyles({
 function DetailView({ match }) {
   const classes = useStyles();
   const history = useHistory();
-  const  breweryDetail  = useSelector((state) => state.getRestroDetail.brewery);
+  const breweryDetail = useSelector((state) => state.getRestroDetail.brewery);
 
   const dispatch = useDispatch();
 
@@ -72,43 +72,43 @@ function DetailView({ match }) {
   } else
     return (
       <>
-      <Box className={classes.container}>
-        <Box className={classes.subContainer}>
-          <Box>
-            <img src={"https://c8.alamy.com/comp/T65WBJ/chilled-glass-of-light-beer-in-ice-cubes-file-contains-clipping-path-T65WBJ.jpg"} className={classes.image} />
-          </Box>
-          <Box className={classes.detailText}>
-            <Typography className={classes.restName}>
-              {breweryDetail ? breweryDetail.name : "loading...."}
-            </Typography>
-            <Typography className={classes.restDetail}>
-              {breweryDetail ? breweryDetail.country : "loading...."}
-            </Typography>
-            <Typography className={classes.restDetail}>
-              {breweryDetail ? breweryDetail.city :"loading...."}
-            </Typography>
+        <Box className={classes.container}>
+          <Box className={classes.subContainer}>
+            <Box>
+              <img src={"https://c8.alamy.com/comp/T65WBJ/chilled-glass-of-light-beer-in-ice-cubes-file-contains-clipping-path-T65WBJ.jpg"} className={classes.image} />
+            </Box>
+            <Box className={classes.detailText}>
+              <Typography className={classes.restName}>
+                {breweryDetail ? breweryDetail.name : "loading...."}
+              </Typography>
+              <Typography className={classes.restDetail}>
+                {breweryDetail ? breweryDetail.country : "loading...."}
+              </Typography>
+              <Typography className={classes.restDetail}>
+                {breweryDetail ? breweryDetail.city : "loading...."}
+              </Typography>
 
-            <Typography style={{ color: "#d70f64", paddingTop: 10 }} >
-              {breweryDetail ? breweryDetail.website_url:"loading...."}
-            </Typography>
+              <Typography style={{ color: "#d70f64", paddingTop: 10 }} >
+                {breweryDetail ? breweryDetail.website_url : "loading...."}
+              </Typography>
+            </Box>
+          </Box>
+          <Divider></Divider>
+        </Box>
+        <Box className={classes.componentGoBack}>
+          <Box className={classes.containerGoBack}>
+            <Box>
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={classes.btnGoBack}
+                onClick={() => addItem()}
+              >
+                Go Back ?
+              </Button>
+            </Box>
           </Box>
         </Box>
-        <Divider></Divider>
-      </Box>
-      <Box className={classes.componentGoBack}>
-      <Box className={classes.containerGoBack}>
-        <Box>
-          <Button
-            variant="outlined"
-            color="secondary"
-            className={classes.btnGoBack}
-            onClick={() => addItem()}
-          >
-            Go Back ?
-          </Button>
-        </Box>
-      </Box>
-    </Box>
       </>
     );
 }

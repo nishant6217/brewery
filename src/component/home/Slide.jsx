@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     height: 200,
     borderRadius: 4,
   },
-  hungry: {
+  mainBrewery: {
     padding: "15px 30px",
   },
   hungryText: {
@@ -64,24 +64,24 @@ const useStyles = makeStyles({
     paddingRight: "50",
   },
 });
-function Slide({ brewery,setSearchParam, handleMoreDataReq }) {
+function Slide({ brewery, setSearchParam, handleMoreDataReq }) {
   const [toBeSearched, setToBeSearched] = React.useState("");
   const handleChange = (event) => {
     setTimeout(() => { setToBeSearched(event.target.value) }, 3000)
   }
-  setTimeout(()=>setSearchParam(toBeSearched),1000)
+  setTimeout(() => setSearchParam(toBeSearched), 1000)
   const classes = useStyles();
   return (
     <>
       <Box className={classes.component}>
-        <Box className={classes.hungry}>
+        <Box className={classes.mainBrewery}>
           <Typography className={classes.hungryText}>Brewery ?</Typography>
           <Typography className={classes.subtext}>
             All Solutions at One Place..!!
           </Typography>
         </Box>
         <Box className={classes.inputHeader}>
-          <div style={{ marginLeft: "auto", marginRight: "auto",}}>
+          <div style={{ marginLeft: "auto", marginRight: "auto", }}>
             <Typography className={classes.mainText}>Searching for Brewery ?</Typography>
           </div>
 
@@ -98,20 +98,20 @@ function Slide({ brewery,setSearchParam, handleMoreDataReq }) {
               onChange={handleChange}
             />
           </div>
-          
-          <div style={{marginRight:"auto"}}>
-          <Button
-            variant="outlined"
-            color="secondary"
-            className={classes.btnGoBack}
-            onClick={handleMoreDataReq}
-           
-          >
-            Load More
-          </Button>
+
+          <div style={{ marginRight: "auto" }}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              className={classes.btnGoBack}
+              onClick={handleMoreDataReq}
+
+            >
+              Load More
+            </Button>
           </div>
         </Box>
-        
+
         <Divider></Divider>
         <Carousel
           responsive={responsive}
